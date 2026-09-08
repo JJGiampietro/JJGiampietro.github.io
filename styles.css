@@ -450,14 +450,14 @@ button:focus-visible {
 
 .about-photo-wrap {
   justify-self: center;
-  width: min(100%, 292px);
+  width: min(100%, 340px);
   position: relative;
 }
 
 .about-photo-wrap img {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  object-position: center 40%;
+  object-position: center 36%;
   filter: saturate(0.88) contrast(0.98);
   border-radius: 28px;
   display: block;
