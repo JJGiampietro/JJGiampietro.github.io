@@ -441,25 +441,26 @@ button:focus-visible {
 
 .about-section {
   background: var(--paper);
-  grid-template-columns: minmax(260px, 0.75fr) 1.25fr;
+  grid-template-columns: minmax(230px, 0.65fr) 1.35fr;
   align-items: center;
-  gap: clamp(50px, 9vw, 145px);
+  gap: clamp(48px, 7vw, 112px);
   padding: 135px max(32px, 50vw - 520px);
   display: grid;
 }
 
 .about-photo-wrap {
   justify-self: center;
-  max-width: 330px;
+  width: min(100%, 292px);
   position: relative;
 }
 
 .about-photo-wrap img {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
-  object-position: center 38%;
+  object-position: center 40%;
   filter: saturate(0.88) contrast(0.98);
   border-radius: 28px;
+  display: block;
   width: 100%;
   box-shadow: 0 20px 55px #12213a24;
 }
