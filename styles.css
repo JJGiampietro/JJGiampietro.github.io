@@ -1146,24 +1146,55 @@ footer a:not(.wordmark):hover {
   box-shadow: 0 26px 60px #12213a30;
 }
 
+.fourrunner-route {
+  position: fixed;
+  left: 50%;
+  bottom: clamp(94px, 12vh, 142px);
+  z-index: 998;
+  width: min(420px, calc(100vw - 42px));
+  border-top: 2px dashed #789563;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) scaleX(.72);
+  transform-origin: left center;
+}
+
+.fourrunner-route::after {
+  content: "";
+  position: absolute;
+  right: -5px;
+  top: -6px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid #587442;
+  border-radius: 50%;
+  background: #eef3e8;
+}
+
+.fourrunner-route.is-revealed {
+  animation: fourrunner-route .72s ease-out forwards;
+}
+
 .fourrunner-reveal {
   position: fixed;
   left: 50%;
-  bottom: clamp(96px, 14vh, 160px);
+  bottom: clamp(116px, 17vh, 190px);
   z-index: 999;
   display: grid;
   gap: 4px;
   width: min(350px, calc(100vw - 48px));
-  padding: 16px 19px;
+  padding: 18px 54px 18px 20px;
   border: 1px solid #d4dfc7;
   border-radius: 18px;
   background: linear-gradient(135deg, #f4f6ebf2, #e1ead8ed);
   box-shadow: 0 18px 42px #20321b24;
   color: #20321b;
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
   transform: translate(-50%, 16px) scale(.97);
   backdrop-filter: blur(12px);
+  transition: opacity .32s ease, transform .32s ease, visibility .32s ease;
   will-change: transform, opacity;
 }
 
@@ -1178,10 +1209,38 @@ footer a:not(.wordmark):hover {
 .fourrunner-reveal strong {
   font-size: .98rem;
   line-height: 1.45;
+  padding-right: 25px;
 }
 
 .fourrunner-reveal.is-revealed {
-  animation: fourrunner-reveal 4.35s ease-in-out forwards;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.fourrunner-dismiss {
+  position: absolute;
+  top: 11px;
+  right: 11px;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid #b8c9aa;
+  border-radius: 50%;
+  background: #ffffff8c;
+  color: #3f5a30;
+  cursor: pointer;
+  font: inherit;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.fourrunner-dismiss:hover,
+.fourrunner-dismiss:focus-visible {
+  background: #ffffff;
+  outline: none;
 }
 
 .fourrunner-drive {
@@ -1229,10 +1288,9 @@ footer a:not(.wordmark):hover {
   animation: fourrunner-drive 4.8s cubic-bezier(0.25, 0.72, 0.35, 1) forwards;
 }
 
-@keyframes fourrunner-reveal {
-  0%, 10% { opacity: 0; transform: translate(-50%, 16px) scale(.97); }
-  20%, 82% { opacity: 1; transform: translate(-50%, 0) scale(1); }
-  100% { opacity: 0; transform: translate(-50%, -8px) scale(.99); }
+@keyframes fourrunner-route {
+  from { opacity: 0; transform: translateX(-50%) scaleX(.72); }
+  to { opacity: .9; transform: translateX(-50%) scaleX(1); }
 }
 
 @keyframes fourrunner-dust {
@@ -1249,5 +1307,5 @@ footer a:not(.wordmark):hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fourrunner-drive, .fourrunner-reveal { display: none; }
+  .fourrunner-drive, .fourrunner-reveal, .fourrunner-route { display: none; }
 }

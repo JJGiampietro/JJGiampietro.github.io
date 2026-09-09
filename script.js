@@ -161,33 +161,53 @@ var prefersReducedMotion = window.matchMedia(
 })();
 
 
-// Click-only 4Runner drive-by and a small personal reveal from the About photo.
+// Click-only 4Runner drive-by that opens a small, dismissible outdoor card.
 (function () {
   var trigger = document.querySelector("[data-4runner-trigger]");
   var driveBy = document.querySelector(".fourrunner-drive");
   var reveal = document.querySelector(".fourrunner-reveal");
+  var route = document.querySelector(".fourrunner-route");
+  var dismiss = document.querySelector(".fourrunner-dismiss");
   var isDriving = false;
+  var isOpen = false;
 
-  if (!trigger || !driveBy || !reveal || prefersReducedMotion) return;
+  if (!trigger || !driveBy || !reveal || !route || !dismiss || prefersReducedMotion) return;
+
+  function closeReveal() {
+    if (!isOpen) return;
+    reveal.classList.remove("is-revealed");
+    route.classList.remove("is-revealed");
+    reveal.setAttribute("aria-hidden", "true");
+    isOpen = false;
+    trigger.focus();
+  }
 
   function playDriveBy() {
-    if (isDriving) return;
+    if (isDriving || isOpen) return;
     isDriving = true;
     driveBy.classList.remove("is-driving");
     reveal.classList.remove("is-revealed");
+    route.classList.remove("is-revealed");
+    reveal.setAttribute("aria-hidden", "true");
 
     window.requestAnimationFrame(function () {
       driveBy.classList.add("is-driving");
-      reveal.classList.add("is-revealed");
     });
 
     window.setTimeout(function () {
+      route.classList.add("is-revealed");
+      reveal.setAttribute("aria-hidden", "false");
+      reveal.classList.add("is-revealed");
+      isOpen = true;
+    }, 800);
+
+    window.setTimeout(function () {
       driveBy.classList.remove("is-driving");
-      reveal.classList.remove("is-revealed");
       isDriving = false;
     }, 5000);
   }
 
+  dismiss.addEventListener("click", closeReveal);
   trigger.addEventListener("click", playDriveBy);
   trigger.addEventListener("keydown", function (event) {
     if (event.key === "Enter" || event.key === " ") {
