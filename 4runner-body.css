@@ -1,4 +1,23 @@
-/* Taller 4Runner proportions with the approved wheel artwork preserved. */
-.fourrunner-illustration.traced-4runner { height: 112px; }
-.traced-4runner-sprite { transform: scaleY(1.3); transform-origin: bottom left; }
-.traced-wheel { top: 61px; }
+/* Rebalanced 4Runner proportions while retaining the approved tire styling. */
+.fourrunner-illustration.traced-4runner { height: 100px; }
+.traced-4runner-sprite { transform: scaleY(1.18); transform-origin: bottom left; }
+.traced-wheel { top: 53px; width: 38px; height: 38px; }
+.traced-wheel-front { left: 13px; }
+.traced-wheel-rear { left: 129px; }
+.traced-wheel::before,
+.traced-wheel::after { top: 9px; bottom: 9px; left: 17px; width: 4px; }
+.traced-wheel b { inset: 14px; }
+.fourrunner-illustration.traced-4runner::after {
+  position: absolute;
+  top: 8px;
+  left: 80px;
+  z-index: 4;
+  width: 78px;
+  height: 15px;
+  box-sizing: border-box;
+  border: 2px solid #1b2320;
+  border-radius: 0;
+  background: linear-gradient(180deg, #2a3430 0 24%, #141b18 24% 76%, #26302c 76% 100%);
+  box-shadow: 0 2px 0 #667168;
+  content: "";
+}

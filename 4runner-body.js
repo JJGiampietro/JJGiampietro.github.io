@@ -15,13 +15,7 @@
 
   for (row = 0; row < 21; row += 1) paint(row, 0, 47, "empty");
 
-  // Long, low-profile hard-shell rooftop tent with simple mounting feet.
-  paint(1, 23, 14, "outline");
-  paint(2, 20, 20, "outline");
-  paint(3, 20, 20, "tent");
-  paint(4, 20, 20, "tent");
-  paint(5, 20, 20, "outline");
-  pixel(6, 22, "metal"); pixel(6, 38, "metal");
+  // The rooftop tent is drawn by the companion CSS as one clean, flat hard-shell rectangle.
 
   // Boxy 4Runner roofline, sloped windshield, long hood, and upright rear hatch.
   paint(6, 21, 18, "outline");
