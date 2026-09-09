@@ -1269,6 +1269,53 @@ footer a:not(.wordmark):hover {
 
 
 
+.fourrunner-mountains {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 996;
+  height: clamp(155px, 25vh, 270px);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(32px);
+  transition: opacity .55s ease, transform .55s ease;
+}
+
+.fourrunner-mountains.is-revealed {
+  opacity: .72;
+  transform: translateY(0);
+}
+
+.mountain {
+  position: absolute;
+  bottom: -3px;
+  display: block;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.mountain-far {
+  left: -8%;
+  width: 52%;
+  height: 58%;
+  background: linear-gradient(135deg, #d9e6d5, #a9bea5);
+}
+
+.mountain-mid {
+  right: 16%;
+  width: 56%;
+  height: 82%;
+  background: linear-gradient(135deg, #bed1b8, #829d7d);
+}
+
+.mountain-near {
+  right: -14%;
+  width: 58%;
+  height: 66%;
+  background: linear-gradient(135deg, #9eb397, #657e62);
+}
+
 .fourrunner-particles {
   position: fixed;
   inset: 0;
@@ -1324,5 +1371,5 @@ footer a:not(.wordmark):hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fourrunner-drive, .fourrunner-reveal, .fourrunner-route { display: none; }
+  .fourrunner-drive, .fourrunner-mountains, .fourrunner-reveal, .fourrunner-route { display: none; }
 }

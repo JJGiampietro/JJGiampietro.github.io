@@ -166,6 +166,7 @@ var prefersReducedMotion = window.matchMedia(
   var trigger = document.querySelector("[data-4runner-trigger]");
   var driveBy = document.querySelector(".fourrunner-drive");
   var particles = document.querySelector(".fourrunner-particles");
+  var mountains = document.querySelector(".fourrunner-mountains");
   var reveal = document.querySelector(".fourrunner-reveal");
   var route = document.querySelector(".fourrunner-route");
   var dismiss = document.querySelector(".fourrunner-dismiss");
@@ -173,7 +174,7 @@ var prefersReducedMotion = window.matchMedia(
   var isOpen = false;
   var dustTimer = null;
 
-  if (!trigger || !driveBy || !particles || !reveal || !route || !dismiss || prefersReducedMotion) return;
+  if (!trigger || !driveBy || !particles || !mountains || !reveal || !route || !dismiss || prefersReducedMotion) return;
 
   function clearDustEmitter() {
     if (dustTimer) {
@@ -211,7 +212,7 @@ var prefersReducedMotion = window.matchMedia(
     if (!isOpen) return;
     reveal.classList.remove("is-revealed");
     route.classList.remove("is-revealed");
-    reveal.setAttribute("aria-hidden", "true");
+    mountains.classList.remove("is-revealed");    reveal.setAttribute("aria-hidden", "true");
     isOpen = false;
     trigger.focus();
   }
@@ -220,14 +221,14 @@ var prefersReducedMotion = window.matchMedia(
     if (isDriving || isOpen) return;
     isDriving = true;
     driveBy.classList.remove("is-driving");
-    reveal.classList.remove("is-revealed");
+    mountains.classList.remove("is-revealed");    reveal.classList.remove("is-revealed");
     route.classList.remove("is-revealed");
-    reveal.setAttribute("aria-hidden", "true");
+    mountains.classList.remove("is-revealed");    reveal.setAttribute("aria-hidden", "true");
     clearDustEmitter();
 
     window.requestAnimationFrame(function () {
-      driveBy.classList.add("is-driving");
-      window.setTimeout(emitDustParticle, 180);
+      mountains.classList.add("is-revealed");
+      driveBy.classList.add("is-driving");      window.setTimeout(emitDustParticle, 180);
       dustTimer = window.setInterval(emitDustParticle, 115);
     });
 
