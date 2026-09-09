@@ -1125,3 +1125,57 @@ footer a:not(.wordmark):hover {
     padding: 26px;
   }
 }
+
+/* Click-only 4Runner drive-by Easter egg */
+.about-photo-wrap[data-4runner-trigger] {
+  cursor: pointer;
+}
+
+.about-photo-wrap[data-4runner-trigger]:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 8px;
+  border-radius: 32px;
+}
+
+.about-photo-wrap[data-4runner-trigger] .about-photo-frame {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.about-photo-wrap[data-4runner-trigger]:hover .about-photo-frame {
+  transform: translateY(-3px);
+  box-shadow: 0 26px 60px #12213a30;
+}
+
+.fourrunner-drive {
+  position: fixed;
+  right: 0;
+  bottom: clamp(18px, 4vh, 52px);
+  z-index: 1000;
+  width: clamp(250px, 32vw, 470px);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(120%);
+  will-change: transform, opacity;
+}
+
+.fourrunner-drive img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 16px 18px #11213a55);
+}
+
+.fourrunner-drive.is-driving {
+  animation: fourrunner-drive 3.2s cubic-bezier(0.25, 0.72, 0.35, 1) forwards;
+}
+
+@keyframes fourrunner-drive {
+  0% { opacity: 0; transform: translateX(120%); }
+  6% { opacity: 1; }
+  84% { opacity: 1; transform: translateX(-100vw); }
+  100% { opacity: 0; transform: translateX(-125vw); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fourrunner-drive { display: none; }
+}

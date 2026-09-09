@@ -160,3 +160,33 @@ var prefersReducedMotion = window.matchMedia(
   stage.addEventListener("mouseleave", onLeave);
 })();
 
+
+// Click-only 4Runner drive-by from the About photo.
+(function () {
+  var trigger = document.querySelector("[data-4runner-trigger]");
+  var driveBy = document.querySelector(".fourrunner-drive");
+  var isDriving = false;
+
+  if (!trigger || !driveBy || prefersReducedMotion) return;
+
+  function playDriveBy() {
+    if (isDriving) return;
+    isDriving = true;
+    driveBy.classList.remove("is-driving");
+    window.requestAnimationFrame(function () {
+      driveBy.classList.add("is-driving");
+    });
+    window.setTimeout(function () {
+      driveBy.classList.remove("is-driving");
+      isDriving = false;
+    }, 3300);
+  }
+
+  trigger.addEventListener("click", playDriveBy);
+  trigger.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      playDriveBy();
+    }
+  });
+})();
