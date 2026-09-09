@@ -209,8 +209,8 @@ var prefersReducedMotion = window.matchMedia(
   }
 
   function emitTireDust() {
-    emitDustParticle(0.30, 0.78);
-    emitDustParticle(0.86, 1);
+    emitDustParticle(0.27, 0.78);
+    emitDustParticle(0.76, 1);
   }
 
   function closeReveal() {
