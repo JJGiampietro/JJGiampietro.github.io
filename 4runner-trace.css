@@ -1,0 +1,6 @@
+/* True 47 x 21 CSS pixel grid vehicle, with bronze hubs and a rooftop tent. */
+.fourrunner-drive { width: 188px; bottom: 8px; }
+.fourrunner-illustration.traced-4runner { width: 188px; height: 84px; aspect-ratio: auto; filter: none; }
+.traced-4runner-sprite { display: grid; width: 188px; height: 84px; grid-template-columns: repeat(47, 4px); grid-template-rows: repeat(21, 4px); }
+.traced-4runner-sprite i { width: 4px; height: 4px; }
+.px-outline { background: #535a51; }.px-body { background: #b9baaa; }.px-shade { background: #969d8f; }.px-glass { background: #303c39; }.px-tent { background: #1b2320; }.px-tire { background: #202723; }.px-hub { background: #ad7d43; }.px-light { background: #f0c85f; }.px-tail { background: #c65c51; }.px-metal { background: #323b35; }
