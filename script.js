@@ -183,29 +183,34 @@ var prefersReducedMotion = window.matchMedia(
     }
   }
 
-  function emitDustParticle() {
+  function emitDustParticle(wheelPosition, dustScale) {
     var rect = driveBy.getBoundingClientRect();
-    var x = rect.left + rect.width * 0.76;
-    var y = rect.top + rect.height * 0.78;
+    var x = rect.left + rect.width * wheelPosition;
+    var y = rect.top + rect.height * 0.8;
     var size;
     var particle;
 
     if (x < -20 || x > window.innerWidth + 20 || y < -20 || y > window.innerHeight + 20) return;
 
-    size = 4 + Math.random() * 8;
+    size = (4 + Math.random() * 7) * dustScale;
     particle = document.createElement("i");
     particle.className = "fourrunner-particle";
-    particle.style.left = (x + (Math.random() - 0.5) * 14) + "px";
-    particle.style.top = (y + (Math.random() - 0.5) * 10) + "px";
+    particle.style.left = (x + (Math.random() - 0.5) * 12) + "px";
+    particle.style.top = (y + (Math.random() - 0.5) * 8) + "px";
     particle.style.width = size + "px";
     particle.style.height = size + "px";
-    particle.style.setProperty("--drift-x", (32 + Math.random() * 70) + "px");
-    particle.style.setProperty("--drift-y", (-12 + Math.random() * 24) + "px");
+    particle.style.setProperty("--drift-x", (24 + Math.random() * 56) * dustScale + "px");
+    particle.style.setProperty("--drift-y", (-10 + Math.random() * 20) + "px");
     particles.appendChild(particle);
 
     window.setTimeout(function () {
       particle.remove();
     }, 1200);
+  }
+
+  function emitTireDust() {
+    emitDustParticle(0.23, 0.78);
+    emitDustParticle(0.77, 1);
   }
 
   function closeReveal() {
@@ -228,8 +233,8 @@ var prefersReducedMotion = window.matchMedia(
 
     window.requestAnimationFrame(function () {
       mountains.classList.add("is-revealed");
-      driveBy.classList.add("is-driving");      window.setTimeout(emitDustParticle, 180);
-      dustTimer = window.setInterval(emitDustParticle, 115);
+      driveBy.classList.add("is-driving");      window.setTimeout(emitTireDust, 180);
+      dustTimer = window.setInterval(emitTireDust, 115);
     });
 
     window.setTimeout(function () {

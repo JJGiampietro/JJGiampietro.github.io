@@ -1254,7 +1254,7 @@ footer a:not(.wordmark):hover {
   right: 0;
   bottom: -8px;
   z-index: 1000;
-  width: clamp(150px, 18vw, 270px);
+  width: clamp(185px, 22vw, 310px);
   pointer-events: none;
   opacity: 0;
   transform: translateX(120%);
@@ -1334,20 +1334,146 @@ footer a:not(.wordmark):hover {
   will-change: transform, opacity;
 }
 
-.fourrunner-drive img {
+.fourrunner-illustration {
   position: relative;
-  z-index: 1;
-  display: block;
   width: 100%;
-  height: auto;
-  filter: drop-shadow(0 10px 12px #11213a44);
+  aspect-ratio: 2.28 / 1;
+  filter: drop-shadow(0 10px 12px #10201936);
 }
+
+.car-body {
+  position: absolute;
+  bottom: 13%;
+  left: 2%;
+  width: 96%;
+  height: 43%;
+  overflow: hidden;
+  border: 3px solid #385145;
+  border-radius: 19% 22% 13% 13%;
+  background: linear-gradient(180deg, #c4d5cc 0%, #a1b9ab 58%, #819e91 100%);
+  clip-path: polygon(0 29%, 8% 17%, 27% 12%, 35% 0, 77% 0, 90% 18%, 100% 32%, 100% 82%, 94% 100%, 8% 100%, 0 80%);
+}
+
+.car-cabin {
+  position: absolute;
+  top: 20%;
+  left: 28%;
+  width: 55%;
+  height: 38%;
+  overflow: hidden;
+  border: 3px solid #385145;
+  border-bottom: 0;
+  border-radius: 16% 18% 0 0;
+  background: #1d3030;
+  clip-path: polygon(9% 100%, 22% 0, 82% 0, 100% 100%);
+}
+
+.car-window {
+  position: absolute;
+  top: 12%;
+  bottom: 8%;
+  display: block;
+  background: linear-gradient(145deg, #a8c7c6 0%, #3f6061 40%, #21393d 100%);
+}
+
+.window-front {
+  left: 9%;
+  width: 39%;
+  clip-path: polygon(24% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.window-rear {
+  right: 8%;
+  width: 39%;
+  border-left: 3px solid #385145;
+  clip-path: polygon(0 0, 76% 0, 100% 100%, 0 100%);
+}
+
+.car-roof-rack {
+  position: absolute;
+  top: 11%;
+  left: 30%;
+  z-index: 3;
+  width: 51%;
+  height: 7%;
+  border: 3px solid #273d37;
+  border-radius: 4px;
+  background: repeating-linear-gradient(90deg, #273d37 0 7px, #a7b9b0 7px 10px);
+}
+
+.car-roof-rack::before,
+.car-roof-rack::after {
+  position: absolute;
+  bottom: -9px;
+  width: 3px;
+  height: 10px;
+  background: #273d37;
+  content: "";
+}
+
+.car-roof-rack::before { left: 12%; }
+.car-roof-rack::after { right: 12%; }
+
+.car-headlight,
+.car-taillight {
+  position: absolute;
+  bottom: 41%;
+  width: 5%;
+  height: 16%;
+  border-radius: 3px;
+}
+
+.car-headlight { left: 2%; background: #f4e7a4; box-shadow: 0 0 8px #f4e7a488; }
+.car-taillight { right: 2%; background: #b85e50; }
+
+.car-door-line {
+  position: absolute;
+  top: 25%;
+  bottom: 8%;
+  left: 60%;
+  width: 2px;
+  background: #4f6b5e;
+  box-shadow: -27px 0 0 #4f6b5e;
+}
+
+.wheel {
+  position: absolute;
+  bottom: 0;
+  z-index: 4;
+  width: 24%;
+  aspect-ratio: 1;
+  border: 5px solid #26342f;
+  border-radius: 50%;
+  background: repeating-conic-gradient(#71654e 0 12deg, #27342f 12deg 28deg, #a28754 28deg 35deg);
+  box-shadow: inset 0 0 0 6px #1d2825, 0 3px 0 #51675c;
+}
+
+.wheel-front { left: 12%; }
+.wheel-rear { right: 12%; }
+
+.wheel b {
+  position: absolute;
+  inset: 27%;
+  border: 3px solid #a58b59;
+  border-radius: 50%;
+  background: #32413c;
+}
+
+.fourrunner-drive.is-driving .wheel {
+  animation: fourrunner-wheel-spin .48s linear infinite;
+}
+
+
 
 .fourrunner-drive.is-driving {
   animation: fourrunner-drive 4.8s cubic-bezier(0.25, 0.72, 0.35, 1) forwards;
 }
 
 
+
+@keyframes fourrunner-wheel-spin {
+  to { transform: rotate(-360deg); }
+}
 
 @keyframes fourrunner-route {
   from { opacity: 0; transform: translateX(-50%) scaleX(.72); }
