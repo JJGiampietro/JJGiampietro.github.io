@@ -1,0 +1,30 @@
+/* Stage 1: fixed-grid CSS recreation of the supplied 225 x 113 pixel 4Runner. */
+.fourrunner-drive { bottom: 8px; width: 225px; }
+.fourrunner-illustration.pixel-4runner { width: 225px; height: 113px; aspect-ratio: auto; }
+.pixel-shadow { display: none; }
+.pixel-body { top: 63px; bottom: auto; left: 30px; width: 176px; height: 33px; border: 3px solid #566055; border-radius: 0; background: #b8b9aa; box-shadow: inset 0 -5px 0 #939b8e; }
+.pixel-hood { top: 57px; bottom: auto; left: 31px; width: 61px; height: 11px; border: 3px solid #566055; border-right: 0; background: #c3c5b6; }
+.pixel-front { top: 66px; bottom: auto; left: 27px; width: 13px; height: 26px; border: 3px solid #566055; border-right: 0; background: #b8b9aa; clip-path: none; }
+.pixel-grille { top: 76px; bottom: auto; left: 27px; width: 7px; height: 11px; border: 2px solid #39433c; border-radius: 0; background: repeating-linear-gradient(90deg, #354039 0 2px, #778176 2px 4px); }
+.pixel-headlight { top: 65px; bottom: auto; left: 28px; width: 8px; height: 6px; border-radius: 0; background: #f2d177; box-shadow: 4px 0 0 #eaae43; }
+.pixel-fog { top: 87px; bottom: auto; left: 32px; width: 6px; height: 6px; border: 2px solid #404a42; border-radius: 0; background: #ddae3e; }
+.pixel-cabin { top: 50px; bottom: auto; left: 85px; width: 101px; height: 36px; border: 3px solid #4b554d; border-bottom: 0; border-radius: 0; background: #b8b9aa; clip-path: polygon(7% 100%, 19% 0, 94% 0, 100% 20%, 100% 100%); }
+.pixel-glass { top: 4px; bottom: auto; height: 27px; background: #354849; box-shadow: inset 0 3px 0 #587172; }
+.pixel-windshield { left: 8px; width: 28px; clip-path: polygon(35% 0, 100% 0, 100% 100%, 0 100%); }
+.pixel-driver-glass { left: 39px; width: 24px; border-left: 3px solid #4b554d; }
+.pixel-rear-glass { left: 66px; width: 23px; border-left: 3px solid #4b554d; }
+.pixel-quarter-glass { top: 8px; right: 4px; width: 9px; height: 22px; border-left: 3px solid #4b554d; border-radius: 0; }
+.pixel-mirror { top: 69px; bottom: auto; left: 83px; width: 10px; height: 7px; border: 2px solid #566055; border-radius: 0; background: #c1c4b7; }
+.pixel-rear { top: 63px; bottom: auto; right: 19px; width: 18px; height: 29px; border: 3px solid #566055; border-left: 0; background: #b8b9aa; clip-path: polygon(0 0, 73% 10%, 100% 27%, 100% 100%, 0 100%); }
+.pixel-taillight { top: 68px; bottom: auto; right: 17px; width: 6px; height: 11px; border-radius: 0; background: #c75f52; }
+.pixel-rocker { top: 96px; right: 47px; bottom: auto; width: 80px; height: 5px; border-radius: 0; background: #3c4840; box-shadow: 0 3px 0 #28332e; }
+.pixel-door-line { top: 8px; bottom: 3px; width: 2px; background: #737c70; }
+.pixel-door-one { left: 76px; } .pixel-door-two { left: 107px; }
+.pixel-handle { top: 10px; width: 9px; height: 3px; border-radius: 0; background: #d6d8cd; box-shadow: 0 0 0 1px #7d857a; }
+.pixel-handle-one { left: 64px; } .pixel-handle-two { left: 94px; }
+.pixel-wheel { top: 75px; bottom: auto; width: 31px; height: 31px; border: 4px solid #202924; border-radius: 0; background: repeating-conic-gradient(#4d544e 0 14deg, #18211d 14deg 29deg, #65533a 29deg 36deg); clip-path: polygon(28% 0, 72% 0, 72% 6%, 86% 6%, 86% 14%, 94% 14%, 94% 28%, 100% 28%, 100% 72%, 94% 72%, 94% 86%, 86% 86%, 86% 94%, 72% 94%, 72% 100%, 28% 100%, 28% 94%, 14% 94%, 14% 86%, 6% 86%, 6% 72%, 0 72%, 0 28%, 6% 28%, 6% 14%, 14% 14%, 14% 6%, 28% 6%); box-shadow: inset 0 0 0 5px #141c18, 0 3px 0 #5b665d; }
+.pixel-wheel-front { left: 39px; } .pixel-wheel-rear { right: 38px; }
+.pixel-wheel b { inset: 9px; border: 3px solid #654a31; border-radius: 0; background: #ad7c43; box-shadow: inset 0 0 0 2px #d4a663; }
+.pixel-tent { top: 37px; bottom: auto; left: 83px; width: 104px; height: 19px; border: 3px solid #17201d; border-radius: 0; background: linear-gradient(180deg, #3a4540 0%, #18211f 18%, #101614 75%, #465149 76%, #202a25 100%); box-shadow: inset 0 3px 0 #606a63, 0 3px 0 #14201c; }
+.pixel-tent::before { position: absolute; top: 5px; right: 8px; left: 8px; height: 3px; background: #7b847e; box-shadow: 0 5px 0 #15201c; content: ""; }
+.pixel-tent::after { position: absolute; right: 12px; bottom: 3px; width: 8px; height: 5px; border: 1px solid #9aa19c; border-radius: 0; background: #303a35; content: ""; }
