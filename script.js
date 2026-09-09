@@ -185,7 +185,7 @@ var prefersReducedMotion = window.matchMedia(
       driveBy.classList.remove("is-driving");
       reveal.classList.remove("is-revealed");
       isDriving = false;
-    }, 3300);
+    }, 5000);
   }
 
   trigger.addEventListener("click", playDriveBy);

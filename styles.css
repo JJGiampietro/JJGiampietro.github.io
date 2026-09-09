@@ -1149,17 +1149,17 @@ footer a:not(.wordmark):hover {
 .fourrunner-reveal {
   position: fixed;
   left: 50%;
-  bottom: clamp(88px, 12vh, 138px);
+  bottom: clamp(96px, 14vh, 160px);
   z-index: 999;
   display: grid;
   gap: 4px;
-  width: min(290px, calc(100vw - 48px));
-  padding: 14px 17px;
-  border: 1px solid #ffffffa8;
+  width: min(350px, calc(100vw - 48px));
+  padding: 16px 19px;
+  border: 1px solid #d4dfc7;
   border-radius: 18px;
-  background: #ffffffd9;
-  box-shadow: 0 16px 38px #12213a1a;
-  color: var(--ink);
+  background: linear-gradient(135deg, #f4f6ebf2, #e1ead8ed);
+  box-shadow: 0 18px 42px #20321b24;
+  color: #20321b;
   opacity: 0;
   pointer-events: none;
   transform: translate(-50%, 16px) scale(.97);
@@ -1168,20 +1168,20 @@ footer a:not(.wordmark):hover {
 }
 
 .fourrunner-reveal span {
-  color: var(--blue);
-  font-size: .68rem;
+  color: #4b6638;
+  font-size: .7rem;
   font-weight: 800;
   letter-spacing: .12em;
   text-transform: uppercase;
 }
 
 .fourrunner-reveal strong {
-  font-size: .9rem;
-  line-height: 1.35;
+  font-size: .98rem;
+  line-height: 1.45;
 }
 
 .fourrunner-reveal.is-revealed {
-  animation: fourrunner-reveal 2.8s ease-in-out forwards;
+  animation: fourrunner-reveal 4.35s ease-in-out forwards;
 }
 
 .fourrunner-drive {
@@ -1196,7 +1196,29 @@ footer a:not(.wordmark):hover {
   will-change: transform, opacity;
 }
 
+.fourrunner-drive::after {
+  content: "";
+  position: absolute;
+  left: 62%;
+  bottom: 7%;
+  width: 90%;
+  height: 26px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, #b8a16b74 0%, #c9b98a42 38%, transparent 72%);
+  filter: blur(6px);
+  opacity: 0;
+  transform: scaleX(.7);
+  transform-origin: left center;
+  z-index: 0;
+}
+
+.fourrunner-drive.is-driving::after {
+  animation: fourrunner-dust 4.8s ease-out forwards;
+}
+
 .fourrunner-drive img {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
   height: auto;
@@ -1204,13 +1226,19 @@ footer a:not(.wordmark):hover {
 }
 
 .fourrunner-drive.is-driving {
-  animation: fourrunner-drive 3.2s cubic-bezier(0.25, 0.72, 0.35, 1) forwards;
+  animation: fourrunner-drive 4.8s cubic-bezier(0.25, 0.72, 0.35, 1) forwards;
 }
 
 @keyframes fourrunner-reveal {
-  0%, 13% { opacity: 0; transform: translate(-50%, 16px) scale(.97); }
-  25%, 76% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+  0%, 10% { opacity: 0; transform: translate(-50%, 16px) scale(.97); }
+  20%, 82% { opacity: 1; transform: translate(-50%, 0) scale(1); }
   100% { opacity: 0; transform: translate(-50%, -8px) scale(.99); }
+}
+
+@keyframes fourrunner-dust {
+  0%, 8% { opacity: 0; transform: scaleX(.7); }
+  18%, 76% { opacity: .68; transform: scaleX(1.1); }
+  100% { opacity: 0; transform: scaleX(1.25); }
 }
 
 @keyframes fourrunner-drive {
