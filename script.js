@@ -186,7 +186,7 @@ var prefersReducedMotion = window.matchMedia(
   function emitDustParticle(wheelPosition, dustScale) {
     var rect = driveBy.getBoundingClientRect();
     var x = rect.left + rect.width * wheelPosition;
-    var y = rect.top + rect.height * 0.8;
+    var y = rect.top + rect.height * 0.88;
     var size;
     var particle;
 
@@ -209,8 +209,8 @@ var prefersReducedMotion = window.matchMedia(
   }
 
   function emitTireDust() {
-    emitDustParticle(0.23, 0.78);
-    emitDustParticle(0.77, 1);
+    emitDustParticle(0.30, 0.78);
+    emitDustParticle(0.86, 1);
   }
 
   function closeReveal() {

@@ -1252,9 +1252,9 @@ footer a:not(.wordmark):hover {
 .fourrunner-drive {
   position: fixed;
   right: 0;
-  bottom: -8px;
+  bottom: -5px;
   z-index: 1000;
-  width: clamp(185px, 22vw, 310px);
+  width: clamp(205px, 18vw, 280px);
   pointer-events: none;
   opacity: 0;
   transform: translateX(120%);
@@ -1337,8 +1337,13 @@ footer a:not(.wordmark):hover {
 .fourrunner-illustration {
   position: relative;
   width: 100%;
-  aspect-ratio: 2.28 / 1;
   filter: drop-shadow(0 10px 12px #10201936);
+}
+
+.fourrunner-photo {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .car-body {
