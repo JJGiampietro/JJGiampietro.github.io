@@ -1265,24 +1265,26 @@ footer a:not(.wordmark):hover {
 
 
 
-.fourrunner-drive .dust-particle {
-  position: absolute;
-  left: 72%;
-  bottom: 9%;
-  z-index: 0;
-  width: var(--size);
-  height: var(--size);
+
+
+
+
+.fourrunner-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.fourrunner-particle {
+  position: fixed;
   border-radius: 50%;
   background: #b28d54;
   box-shadow: 0 0 0 2px #d2b77f88;
-  filter: blur(.35px);
-  opacity: 0;
-  transform: translate(0, 0) scale(.35);
+  filter: blur(.25px);
+  animation: fourrunner-particle 1.15s ease-out forwards;
   will-change: transform, opacity;
-}
-
-.fourrunner-drive.is-driving .dust-particle {
-  animation: fourrunner-particle 3.45s var(--delay) cubic-bezier(.18, .62, .36, 1) forwards;
 }
 
 .fourrunner-drive img {
@@ -1308,10 +1310,10 @@ footer a:not(.wordmark):hover {
 
 
 @keyframes fourrunner-particle {
-  0%, 10% { opacity: 0; transform: translate(0, 0) scale(.35); }
-  18% { opacity: .88; }
-  62% { opacity: .42; }
-  100% { opacity: 0; transform: translate(var(--travel), var(--lift)) scale(1.8); }
+  0% { opacity: 0; transform: translate(0, 0) scale(.35); }
+  14% { opacity: .82; }
+  58% { opacity: .48; }
+  100% { opacity: 0; transform: translate(var(--drift-x), var(--drift-y)) scale(1.75); }
 }
 
 @keyframes fourrunner-drive {

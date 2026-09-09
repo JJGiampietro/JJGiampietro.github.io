@@ -165,13 +165,47 @@ var prefersReducedMotion = window.matchMedia(
 (function () {
   var trigger = document.querySelector("[data-4runner-trigger]");
   var driveBy = document.querySelector(".fourrunner-drive");
+  var particles = document.querySelector(".fourrunner-particles");
   var reveal = document.querySelector(".fourrunner-reveal");
   var route = document.querySelector(".fourrunner-route");
   var dismiss = document.querySelector(".fourrunner-dismiss");
   var isDriving = false;
   var isOpen = false;
+  var dustTimer = null;
 
-  if (!trigger || !driveBy || !reveal || !route || !dismiss || prefersReducedMotion) return;
+  if (!trigger || !driveBy || !particles || !reveal || !route || !dismiss || prefersReducedMotion) return;
+
+  function clearDustEmitter() {
+    if (dustTimer) {
+      window.clearInterval(dustTimer);
+      dustTimer = null;
+    }
+  }
+
+  function emitDustParticle() {
+    var rect = driveBy.getBoundingClientRect();
+    var x = rect.left + rect.width * 0.76;
+    var y = rect.top + rect.height * 0.78;
+    var size;
+    var particle;
+
+    if (x < -20 || x > window.innerWidth + 20 || y < -20 || y > window.innerHeight + 20) return;
+
+    size = 4 + Math.random() * 8;
+    particle = document.createElement("i");
+    particle.className = "fourrunner-particle";
+    particle.style.left = (x + (Math.random() - 0.5) * 14) + "px";
+    particle.style.top = (y + (Math.random() - 0.5) * 10) + "px";
+    particle.style.width = size + "px";
+    particle.style.height = size + "px";
+    particle.style.setProperty("--drift-x", (32 + Math.random() * 70) + "px");
+    particle.style.setProperty("--drift-y", (-12 + Math.random() * 24) + "px");
+    particles.appendChild(particle);
+
+    window.setTimeout(function () {
+      particle.remove();
+    }, 1200);
+  }
 
   function closeReveal() {
     if (!isOpen) return;
@@ -189,9 +223,12 @@ var prefersReducedMotion = window.matchMedia(
     reveal.classList.remove("is-revealed");
     route.classList.remove("is-revealed");
     reveal.setAttribute("aria-hidden", "true");
+    clearDustEmitter();
 
     window.requestAnimationFrame(function () {
       driveBy.classList.add("is-driving");
+      window.setTimeout(emitDustParticle, 180);
+      dustTimer = window.setInterval(emitDustParticle, 115);
     });
 
     window.setTimeout(function () {
@@ -202,6 +239,7 @@ var prefersReducedMotion = window.matchMedia(
     }, 800);
 
     window.setTimeout(function () {
+      clearDustEmitter();
       driveBy.classList.remove("is-driving");
       isDriving = false;
     }, 5000);
