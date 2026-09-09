@@ -1146,32 +1146,11 @@ footer a:not(.wordmark):hover {
   box-shadow: 0 26px 60px #12213a30;
 }
 
-.fourrunner-trail {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  z-index: 997;
-  width: 100%;
-  height: clamp(54px, 7vw, 104px);
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transform: scaleX(.96);
-  transform-origin: center bottom;
-}
 
-.fourrunner-trail img {
-  width: 110%;
-  max-width: none;
-  height: 100%;
-  object-fit: fill;
-  opacity: .72;
-  mix-blend-mode: multiply;
-}
 
-.fourrunner-trail.is-driving {
-  animation: fourrunner-trail 4.8s ease-out forwards;
-}
+
+
+
 
 .fourrunner-route {
   position: fixed;
@@ -1285,16 +1264,22 @@ footer a:not(.wordmark):hover {
 .fourrunner-drive::after {
   content: "";
   position: absolute;
-  left: 62%;
+  left: 66%;
   bottom: 7%;
-  width: 90%;
-  height: 26px;
+  width: 150px;
+  height: 20px;
   border-radius: 50%;
-  background: radial-gradient(ellipse at center, #b8a16b74 0%, #c9b98a42 38%, transparent 72%);
-  filter: blur(6px);
+  background:
+    radial-gradient(ellipse at 8% 50%, #9b7b49a8 0 5%, transparent 27%),
+    radial-gradient(ellipse at 28% 62%, #c3a56c8a 0 7%, transparent 30%),
+    radial-gradient(ellipse at 49% 40%, #ac8d58a0 0 6%, transparent 28%),
+    radial-gradient(ellipse at 72% 58%, #d0b98880 0 5%, transparent 26%),
+    radial-gradient(ellipse at 94% 45%, #a8875090 0 4%, transparent 24%);
+  filter: blur(.55px);
   opacity: 0;
-  transform: scaleX(.7);
+  transform: translateX(0) scaleX(.35);
   transform-origin: left center;
+  will-change: transform, opacity;
   z-index: 0;
 }
 
@@ -1315,11 +1300,7 @@ footer a:not(.wordmark):hover {
   animation: fourrunner-drive 4.8s cubic-bezier(0.25, 0.72, 0.35, 1) forwards;
 }
 
-@keyframes fourrunner-trail {
-  0%, 7% { opacity: 0; transform: scaleX(.96); }
-  18%, 80% { opacity: 1; transform: scaleX(1); }
-  100% { opacity: 0; transform: scaleX(1.02); }
-}
+
 
 @keyframes fourrunner-route {
   from { opacity: 0; transform: translateX(-50%) scaleX(.72); }
@@ -1327,9 +1308,10 @@ footer a:not(.wordmark):hover {
 }
 
 @keyframes fourrunner-dust {
-  0%, 8% { opacity: 0; transform: scaleX(.7); }
-  18%, 76% { opacity: .68; transform: scaleX(1.1); }
-  100% { opacity: 0; transform: scaleX(1.25); }
+  0%, 12% { opacity: 0; transform: translateX(0) scaleX(.35); }
+  27% { opacity: .68; transform: translateX(18vw) scaleX(1.55); }
+  76% { opacity: .28; transform: translateX(92vw) scaleX(4.6); }
+  100% { opacity: 0; transform: translateX(115vw) scaleX(5.3); }
 }
 
 @keyframes fourrunner-drive {
@@ -1340,5 +1322,5 @@ footer a:not(.wordmark):hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fourrunner-drive, .fourrunner-trail, .fourrunner-reveal, .fourrunner-route { display: none; }
+  .fourrunner-drive, .fourrunner-reveal, .fourrunner-route { display: none; }
 }
