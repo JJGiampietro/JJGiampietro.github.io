@@ -1,0 +1,4 @@
+/* Taller, more upright 4Runner body while retaining the approved wheel sprite. */
+.fourrunner-illustration.traced-4runner { height: 98px; }
+.traced-4runner-sprite { transform: scaleY(1.16); transform-origin: bottom left; }
+.traced-wheel { top: 47px; }
