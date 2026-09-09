@@ -165,13 +165,14 @@ var prefersReducedMotion = window.matchMedia(
 (function () {
   var trigger = document.querySelector("[data-4runner-trigger]");
   var driveBy = document.querySelector(".fourrunner-drive");
+  var trail = document.querySelector(".fourrunner-trail");
   var reveal = document.querySelector(".fourrunner-reveal");
   var route = document.querySelector(".fourrunner-route");
   var dismiss = document.querySelector(".fourrunner-dismiss");
   var isDriving = false;
   var isOpen = false;
 
-  if (!trigger || !driveBy || !reveal || !route || !dismiss || prefersReducedMotion) return;
+  if (!trigger || !driveBy || !trail || !reveal || !route || !dismiss || prefersReducedMotion) return;
 
   function closeReveal() {
     if (!isOpen) return;
@@ -186,11 +187,13 @@ var prefersReducedMotion = window.matchMedia(
     if (isDriving || isOpen) return;
     isDriving = true;
     driveBy.classList.remove("is-driving");
+    trail.classList.remove("is-driving");
     reveal.classList.remove("is-revealed");
     route.classList.remove("is-revealed");
     reveal.setAttribute("aria-hidden", "true");
 
     window.requestAnimationFrame(function () {
+      trail.classList.add("is-driving");
       driveBy.classList.add("is-driving");
     });
 
@@ -203,6 +206,7 @@ var prefersReducedMotion = window.matchMedia(
 
     window.setTimeout(function () {
       driveBy.classList.remove("is-driving");
+      trail.classList.remove("is-driving");
       isDriving = false;
     }, 5000);
   }

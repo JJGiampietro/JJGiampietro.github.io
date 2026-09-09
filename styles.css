@@ -1146,6 +1146,33 @@ footer a:not(.wordmark):hover {
   box-shadow: 0 26px 60px #12213a30;
 }
 
+.fourrunner-trail {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 997;
+  width: 100%;
+  height: clamp(54px, 7vw, 104px);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: scaleX(.96);
+  transform-origin: center bottom;
+}
+
+.fourrunner-trail img {
+  width: 110%;
+  max-width: none;
+  height: 100%;
+  object-fit: fill;
+  opacity: .72;
+  mix-blend-mode: multiply;
+}
+
+.fourrunner-trail.is-driving {
+  animation: fourrunner-trail 4.8s ease-out forwards;
+}
+
 .fourrunner-route {
   position: fixed;
   left: 50%;
@@ -1288,6 +1315,12 @@ footer a:not(.wordmark):hover {
   animation: fourrunner-drive 4.8s cubic-bezier(0.25, 0.72, 0.35, 1) forwards;
 }
 
+@keyframes fourrunner-trail {
+  0%, 7% { opacity: 0; transform: scaleX(.96); }
+  18%, 80% { opacity: 1; transform: scaleX(1); }
+  100% { opacity: 0; transform: scaleX(1.02); }
+}
+
 @keyframes fourrunner-route {
   from { opacity: 0; transform: translateX(-50%) scaleX(.72); }
   to { opacity: .9; transform: translateX(-50%) scaleX(1); }
@@ -1307,5 +1340,5 @@ footer a:not(.wordmark):hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fourrunner-drive, .fourrunner-reveal, .fourrunner-route { display: none; }
+  .fourrunner-drive, .fourrunner-trail, .fourrunner-reveal, .fourrunner-route { display: none; }
 }
