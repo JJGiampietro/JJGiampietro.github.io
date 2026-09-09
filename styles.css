@@ -1252,7 +1252,7 @@ footer a:not(.wordmark):hover {
 .fourrunner-drive {
   position: fixed;
   right: 0;
-  bottom: -6px;
+  bottom: 0;
   z-index: 1000;
   width: clamp(215px, 21vw, 315px);
   pointer-events: none;
@@ -1349,11 +1349,11 @@ footer a:not(.wordmark):hover {
 }
 
 .truck-body {
-  bottom: 14%;
+  bottom: 16%;
   left: 1%;
   z-index: 2;
   width: 98%;
-  height: 43%;
+  height: 48%;
   overflow: visible;
   border: 3px solid #30453d;
   border-radius: 8px 11px 8px 8px;
@@ -1362,11 +1362,11 @@ footer a:not(.wordmark):hover {
 }
 
 .truck-cabin {
-  top: 17%;
+  top: 12%;
   left: 29%;
   z-index: 3;
   width: 64%;
-  height: 42%;
+  height: 55%;
   overflow: hidden;
   border: 3px solid #30453d;
   border-bottom: 0;
@@ -1400,7 +1400,7 @@ footer a:not(.wordmark):hover {
 }
 
 .truck-roof-rack {
-  top: 8%;
+  top: 7%;
   left: 29%;
   z-index: 5;
   width: 66%;
@@ -1411,11 +1411,11 @@ footer a:not(.wordmark):hover {
 }
 
 .truck-roof-case {
-  top: 0;
+  top: 1%;
   left: 32%;
   z-index: 6;
   width: 60%;
-  height: 15%;
+  height: 12%;
   border: 3px solid #1c2928;
   border-radius: 5px 6px 4px 4px;
   background: linear-gradient(180deg, #1e2b2a 0%, #111c1c 78%, #40524b 79%, #1d2c29 100%);
@@ -1495,33 +1495,33 @@ footer a:not(.wordmark):hover {
 .truck-door-rear { left: 76%; }
 
 .truck-side-step {
-  right: 13%;
-  bottom: 14%;
+  right: 14%;
+  bottom: 17%;
   z-index: 4;
-  width: 58%;
-  height: 6%;
+  width: 55%;
+  height: 5%;
   border-radius: 0 0 4px 4px;
   background: linear-gradient(180deg, #152321, #31443e);
 }
 
 .truck-fender {
-  bottom: 5%;
+  bottom: 11%;
   z-index: 5;
-  width: 32%;
-  height: 57%;
+  width: 25%;
+  height: 44%;
   border: 5px solid #b4ccc0;
   border-bottom: 0;
   border-radius: 50% 50% 0 0;
   box-shadow: inset 0 3px 0 #688b7b;
 }
 
-.truck-fender-front { left: 10%; }
-.truck-fender-rear { right: 7%; }
+.truck-fender-front { left: 14%; }
+.truck-fender-rear { right: 11%; }
 
 .truck-wheel {
-  bottom: 0;
+  bottom: 3%;
   z-index: 7;
-  width: 27%;
+  width: 18%;
   aspect-ratio: 1;
   border: 6px solid #202d2a;
   border-radius: 50%;
@@ -1529,8 +1529,8 @@ footer a:not(.wordmark):hover {
   box-shadow: inset 0 0 0 7px #15211f, 0 4px 0 #5c786b;
 }
 
-.truck-wheel-front { left: 14%; }
-.truck-wheel-rear { right: 12%; }
+.truck-wheel-front { left: 18%; }
+.truck-wheel-rear { right: 14%; }
 
 .truck-wheel b {
   inset: 28%;
