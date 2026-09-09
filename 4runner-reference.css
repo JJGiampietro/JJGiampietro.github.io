@@ -1,0 +1,31 @@
+/* Pixel-style 4Runner based on the supplied reference, built entirely in HTML/CSS. */
+.fourrunner-illustration.runner-4runner { aspect-ratio: 2.55 / 1; filter: drop-shadow(0 6px 7px #1020192e); }
+.runner-shadow { display: none; }
+.runner-body { bottom: 19%; left: 4%; width: 92%; height: 38%; border: 3px solid #465449; border-radius: 0; background: linear-gradient(180deg, #c8d2c8 0%, #aab9ad 55%, #91a294 56%, #91a294 100%); clip-path: polygon(0 38%, 4% 23%, 25% 20%, 33% 7%, 88% 7%, 96% 23%, 100% 35%, 100% 82%, 96% 100%, 4% 100%, 0 82%); }
+.runner-hood-line { top: 38%; left: 6%; width: 23%; height: 2px; background: #7d9283; transform: none; }
+.runner-grille { bottom: 25%; left: 0; width: 10%; height: 27%; border: 2px solid #445248; border-radius: 0; background: repeating-linear-gradient(90deg, #3b4b42 0 3px, #7f9184 3px 5px); }
+.runner-headlight { top: 40%; left: 2%; width: 8%; height: 13%; border-radius: 0; background: #f4dd85; box-shadow: none; }
+.runner-fog { bottom: 19%; left: 6%; width: 4%; border: 2px solid #445248; border-radius: 0; background: #e0b840; }
+.runner-taillight { top: 35%; right: 1%; width: 5%; height: 18%; border-radius: 0; background: #c55d54; }
+.runner-cabin { top: 22%; left: 20%; width: 73%; height: 35%; border: 3px solid #3c4c43; border-bottom: 0; border-radius: 0; background: #31413d; clip-path: polygon(9% 100%, 20% 0, 94% 0, 100% 25%, 100% 100%); }
+.runner-glass { top: 12%; bottom: 10%; background: linear-gradient(135deg, #b8d0cf 0%, #719494 35%, #395b5d 100%); }
+.runner-windshield { left: 2%; width: 27%; clip-path: polygon(35% 0, 100% 0, 100% 100%, 0 100%); }
+.runner-driver-window { left: 31%; width: 29%; border-left: 3px solid #33433c; }
+.runner-rear-window { left: 63%; width: 24%; border-left: 3px solid #33433c; }
+.runner-quarter-window { right: 3%; width: 10%; border-left: 3px solid #33433c; border-radius: 0; }
+.runner-mirror { top: 46%; left: 23%; width: 7%; height: 8%; border: 2px solid #465449; border-radius: 2px 0 2px 0; background: #b9c8bf; }
+.runner-rocker { right: 14%; bottom: 17%; width: 56%; height: 5%; border-radius: 0; background: #33433d; }
+.runner-door { top: 27%; bottom: 8%; width: 2px; background: #738b7d; }
+.runner-front-door { left: 54%; } .runner-rear-door { left: 75%; }
+.runner-handle { top: 33%; width: 6%; height: 3%; border-radius: 0; background: #d6ded7; box-shadow: 0 0 0 1px #6d8477; }
+.runner-handle-front { left: 48%; } .runner-handle-rear { left: 68%; }
+.runner-arch { display: none; }
+.runner-wheel { bottom: 5%; width: 17%; border: 5px solid #25302c; border-radius: 50%; background: repeating-conic-gradient(#4a514a 0 13deg, #1b2522 13deg 29deg, #645439 29deg 36deg); box-shadow: inset 0 0 0 6px #17211f, 0 3px 0 #5c7367; }
+.runner-wheel-front { left: 15%; } .runner-wheel-rear { right: 13%; }
+.runner-wheel b { inset: 30%; border: 3px solid #664b31; border-radius: 50%; background: #b17c3f; box-shadow: inset 0 0 0 2px #d0a260; }
+.runner-roof-rack { top: 15%; left: 24%; width: 71%; height: 3%; border: 2px solid #182522; border-radius: 0; background: #263631; }
+.runner-roof-rack::before, .runner-roof-rack::after { bottom: -8px; width: 3px; height: 8px; background: #1e2c28; content: ""; }
+.runner-roof-rack::before { left: 16%; } .runner-roof-rack::after { right: 16%; }
+.runner-roof-case { top: 4%; left: 29%; width: 62%; height: 13%; border: 3px solid #17221f; border-radius: 0; background: linear-gradient(180deg, #34423d 0%, #1a2422 22%, #101917 76%, #45524a 77%, #1d2925 100%); box-shadow: inset 0 3px 0 #59675e, 0 3px 0 #12201c; }
+.runner-roof-case::before { top: 27%; right: 7%; left: 7%; width: auto; height: 3px; background: #77837c; box-shadow: 0 5px 0 #17231f; content: ""; }
+.runner-roof-case::after { right: 11%; bottom: 17%; left: auto; width: 8%; height: 24%; border: 1px solid #8a938d; border-radius: 0; background: #2b3832; box-shadow: none; content: ""; }
