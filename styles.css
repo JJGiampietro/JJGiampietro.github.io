@@ -1261,30 +1261,28 @@ footer a:not(.wordmark):hover {
   will-change: transform, opacity;
 }
 
-.fourrunner-drive::after {
-  content: "";
+
+
+
+
+.fourrunner-drive .dust-particle {
   position: absolute;
-  left: 66%;
-  bottom: 7%;
-  width: 150px;
-  height: 20px;
-  border-radius: 50%;
-  background:
-    radial-gradient(ellipse at 8% 50%, #9b7b49a8 0 5%, transparent 27%),
-    radial-gradient(ellipse at 28% 62%, #c3a56c8a 0 7%, transparent 30%),
-    radial-gradient(ellipse at 49% 40%, #ac8d58a0 0 6%, transparent 28%),
-    radial-gradient(ellipse at 72% 58%, #d0b98880 0 5%, transparent 26%),
-    radial-gradient(ellipse at 94% 45%, #a8875090 0 4%, transparent 24%);
-  filter: blur(.55px);
-  opacity: 0;
-  transform: translateX(0) scaleX(.35);
-  transform-origin: left center;
-  will-change: transform, opacity;
+  left: 72%;
+  bottom: 9%;
   z-index: 0;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: #b28d54;
+  box-shadow: 0 0 0 2px #d2b77f88;
+  filter: blur(.35px);
+  opacity: 0;
+  transform: translate(0, 0) scale(.35);
+  will-change: transform, opacity;
 }
 
-.fourrunner-drive.is-driving::after {
-  animation: fourrunner-dust 4.8s ease-out forwards;
+.fourrunner-drive.is-driving .dust-particle {
+  animation: fourrunner-particle 3.45s var(--delay) cubic-bezier(.18, .62, .36, 1) forwards;
 }
 
 .fourrunner-drive img {
@@ -1307,11 +1305,13 @@ footer a:not(.wordmark):hover {
   to { opacity: .9; transform: translateX(-50%) scaleX(1); }
 }
 
-@keyframes fourrunner-dust {
-  0%, 12% { opacity: 0; transform: translateX(0) scaleX(.35); }
-  27% { opacity: .68; transform: translateX(18vw) scaleX(1.55); }
-  76% { opacity: .28; transform: translateX(92vw) scaleX(4.6); }
-  100% { opacity: 0; transform: translateX(115vw) scaleX(5.3); }
+
+
+@keyframes fourrunner-particle {
+  0%, 10% { opacity: 0; transform: translate(0, 0) scale(.35); }
+  18% { opacity: .88; }
+  62% { opacity: .42; }
+  100% { opacity: 0; transform: translate(var(--travel), var(--lift)) scale(1.8); }
 }
 
 @keyframes fourrunner-drive {
