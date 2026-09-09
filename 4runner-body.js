@@ -1,32 +1,46 @@
-// Make the traced sprite read as a taller, upright SUV while preserving the wheel sprite.
+// Rebuild the body as a compact, upright 4Runner-style pixel silhouette.
 (function () {
   var sprite = document.querySelector("[data-pixel-sprite]");
-  function paint(row, start, length, color) {
-    var column;
+  var row;
+  var column;
+  function paint(targetRow, start, length, color) {
     for (column = start; column < start + length; column += 1) {
-      sprite.children[row * 47 + column].className = "px-" + color;
+      sprite.children[targetRow * 47 + column].className = "px-" + color;
     }
   }
   if (!sprite || sprite.children.length !== 987) return;
-  // Remove the stepped roof layers from the first draft and use one flat tent case.
-  paint(0, 13, 31, "empty"); paint(1, 13, 31, "empty"); paint(2, 13, 31, "empty");
-  paint(3, 13, 31, "empty"); paint(4, 13, 31, "empty"); paint(5, 13, 31, "empty");
-  paint(6, 13, 31, "empty");
-  paint(3, 21, 15, "outline");
-  paint(4, 20, 17, "outline");
-  paint(5, 20, 17, "tent");
+
+  // Clear the old traced shape. The separate, approved wheel overlays remain untouched.
+  for (row = 0; row < 21; row += 1) paint(row, 0, 47, "empty");
+
+  // Flat hard-shell rooftop tent.
+  paint(2, 20, 18, "outline");
+  paint(3, 20, 18, "tent");
+  paint(4, 20, 18, "tent");
+  paint(5, 20, 18, "outline");
+
+  // Taller, squared cabin and upright rear hatch.
   paint(6, 20, 17, "outline");
+  paint(7, 18, 21, "outline");
+  paint(8, 16, 24, "outline");
+  paint(9, 14, 27, "outline");
+  paint(10, 10, 34, "body");
+  paint(11, 5, 40, "body");
+  paint(12, 3, 43, "body");
+  paint(13, 3, 43, "shade");
+  paint(14, 4, 41, "body");
+  paint(15, 5, 39, "body");
+  paint(16, 7, 35, "outline");
 
-  // Keep the glazing short and proportional instead of filling the full cabin height.
-  paint(7, 17, 24, "body"); paint(8, 17, 24, "body");
-  paint(9, 17, 24, "body"); paint(10, 17, 24, "body");
-  paint(9, 19, 6, "glass"); paint(9, 27, 6, "glass"); paint(9, 35, 5, "glass");
-  paint(10, 19, 6, "glass"); paint(10, 27, 6, "glass"); paint(10, 35, 5, "glass");
-  paint(11, 17, 23, "body"); paint(12, 17, 23, "body");
-  paint(11, 40, 4, "body"); paint(12, 40, 5, "body"); paint(13, 40, 5, "shade");
-  paint(14, 17, 23, "body"); paint(15, 17, 23, "body");
-  paint(16, 17, 23, "outline");
+  // Two short rows of windows keep the glass proportional to the SUV body.
+  paint(8, 21, 6, "glass"); paint(8, 28, 7, "glass"); paint(8, 36, 3, "glass");
+  paint(9, 18, 9, "glass"); paint(9, 28, 7, "glass"); paint(9, 36, 4, "glass");
 
-  // Remove the below-body pixel cluster so the chassis has a clean underside.
-  paint(17, 18, 8, "empty"); paint(17, 30, 6, "empty");
-  paint(18, 19, 4, "empty"); paint(19, 20, 3, "empty");})();
+  // Pixel door seams, lighting, and a clean lower edge.
+  paint(11, 27, 1, "outline"); paint(11, 35, 1, "outline");
+  paint(12, 27, 1, "outline"); paint(12, 35, 1, "outline");
+  paint(13, 27, 1, "outline"); paint(13, 35, 1, "outline");
+  paint(14, 27, 1, "outline"); paint(14, 35, 1, "outline");
+  paint(11, 4, 2, "light"); paint(12, 4, 1, "light");
+  paint(11, 44, 1, "tail"); paint(12, 44, 1, "tail");
+})();
