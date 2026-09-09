@@ -1146,6 +1146,44 @@ footer a:not(.wordmark):hover {
   box-shadow: 0 26px 60px #12213a30;
 }
 
+.fourrunner-reveal {
+  position: fixed;
+  left: 50%;
+  bottom: clamp(88px, 12vh, 138px);
+  z-index: 999;
+  display: grid;
+  gap: 4px;
+  width: min(290px, calc(100vw - 48px));
+  padding: 14px 17px;
+  border: 1px solid #ffffffa8;
+  border-radius: 18px;
+  background: #ffffffd9;
+  box-shadow: 0 16px 38px #12213a1a;
+  color: var(--ink);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 16px) scale(.97);
+  backdrop-filter: blur(12px);
+  will-change: transform, opacity;
+}
+
+.fourrunner-reveal span {
+  color: var(--blue);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.fourrunner-reveal strong {
+  font-size: .9rem;
+  line-height: 1.35;
+}
+
+.fourrunner-reveal.is-revealed {
+  animation: fourrunner-reveal 2.8s ease-in-out forwards;
+}
+
 .fourrunner-drive {
   position: fixed;
   right: 0;
@@ -1169,6 +1207,12 @@ footer a:not(.wordmark):hover {
   animation: fourrunner-drive 3.2s cubic-bezier(0.25, 0.72, 0.35, 1) forwards;
 }
 
+@keyframes fourrunner-reveal {
+  0%, 13% { opacity: 0; transform: translate(-50%, 16px) scale(.97); }
+  25%, 76% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -8px) scale(.99); }
+}
+
 @keyframes fourrunner-drive {
   0% { opacity: 0; transform: translateX(120%); }
   6% { opacity: 1; }
@@ -1177,5 +1221,5 @@ footer a:not(.wordmark):hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fourrunner-drive { display: none; }
+  .fourrunner-drive, .fourrunner-reveal { display: none; }
 }
