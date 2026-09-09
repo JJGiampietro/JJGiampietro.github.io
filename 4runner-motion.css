@@ -1,0 +1,47 @@
+/* Pixel-reference refinement and independently rotating wheel overlays. */
+.traced-4runner-sprite .px-tire,
+.traced-4runner-sprite .px-hub { background: transparent; }
+
+.traced-wheel {
+  position: absolute;
+  top: 52px;
+  z-index: 5;
+  width: 32px;
+  height: 32px;
+  background: #202723;
+  clip-path: polygon(28% 0, 72% 0, 72% 6%, 86% 6%, 86% 14%, 94% 14%, 94% 28%, 100% 28%, 100% 72%, 94% 72%, 94% 86%, 86% 86%, 86% 94%, 72% 94%, 72% 100%, 28% 100%, 28% 94%, 14% 94%, 14% 86%, 6% 86%, 6% 72%, 0 72%, 0 28%, 6% 28%, 6% 14%, 14% 14%, 14% 6%, 28% 6%);
+  box-shadow: inset 0 0 0 4px #151c19;
+}
+
+.traced-wheel-front { left: 16px; }
+.traced-wheel-rear { left: 132px; }
+
+.traced-wheel::before,
+.traced-wheel::after {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 14px;
+  width: 4px;
+  background: #5b625b;
+  content: "";
+}
+
+.traced-wheel::after { transform: rotate(90deg); }
+
+.traced-wheel b {
+  position: absolute;
+  inset: 12px;
+  z-index: 2;
+  background: #ad7d43;
+  box-shadow: inset 0 0 0 2px #d1a262;
+}
+
+.fourrunner-drive.is-driving .traced-wheel {
+  animation: fourrunner-wheel-spin .48s linear infinite;
+}
+
+/* Keep the tent and cabin deliberately flat and stepped like the reference sprite. */
+.traced-4runner-sprite .px-tent { background: #1a211e; }
+.traced-4runner-sprite .px-glass { background: #303b38; }
+.traced-4runner-sprite .px-body { background: #bbbbaa; }
