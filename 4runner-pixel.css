@@ -1,0 +1,32 @@
+/* Direct CSS recreation of the supplied pixel 4Runner reference. */
+.fourrunner-drive { bottom: 8px; width: clamp(205px, 19vw, 292px); }
+.fourrunner-illustration.pixel-4runner { position: relative; aspect-ratio: 2.05 / 1; filter: drop-shadow(0 6px 7px #1020192e); image-rendering: pixelated; }
+.pixel-4runner i, .pixel-4runner b { position: absolute; display: block; box-sizing: border-box; }
+.pixel-shadow { right: 8%; bottom: 5%; left: 7%; height: 7%; background: #273a3030; filter: blur(3px); }
+.pixel-body { bottom: 20%; left: 5%; z-index: 3; width: 90%; height: 29%; border: 3px solid #515d51; background: #b9c1b5; box-shadow: inset 0 -6px 0 #94a195; }
+.pixel-hood { bottom: 46%; left: 6%; z-index: 4; width: 31%; height: 9%; border: 3px solid #515d51; border-right: 0; background: #c3c9bd; }
+.pixel-front { bottom: 28%; left: 2%; z-index: 5; width: 10%; height: 20%; border: 3px solid #515d51; border-right: 0; background: #b9c1b5; clip-path: polygon(0 18%, 100% 18%, 100% 100%, 0 100%); }
+.pixel-grille { bottom: 29%; left: 2%; z-index: 6; width: 5%; height: 12%; border: 2px solid #3c4840; background: repeating-linear-gradient(90deg, #36433b 0 2px, #7d8c80 2px 4px); }
+.pixel-headlight { bottom: 39%; left: 3%; z-index: 7; width: 6%; height: 7%; background: #f6d578; box-shadow: 3px 0 0 #f0b646; }
+.pixel-fog { bottom: 27%; left: 5%; z-index: 7; width: 4%; aspect-ratio: 1; border: 2px solid #414d44; background: #e5b744; }
+.pixel-cabin { bottom: 45%; left: 33%; z-index: 6; width: 53%; height: 28%; border: 3px solid #3f4b42; border-bottom: 0; background: #26332f; clip-path: polygon(7% 100%, 21% 0, 100% 0, 100% 100%); }
+.pixel-glass { top: 13%; bottom: 10%; background: #344a4a; box-shadow: inset 0 4px 0 #567172; }
+.pixel-windshield { left: 4%; width: 26%; clip-path: polygon(33% 0, 100% 0, 100% 100%, 0 100%); }
+.pixel-driver-glass { left: 33%; width: 31%; border-left: 3px solid #26332f; }
+.pixel-rear-glass { left: 67%; width: 20%; border-left: 3px solid #26332f; }
+.pixel-quarter-glass { right: 3%; width: 9%; border-left: 3px solid #26332f; }
+.pixel-mirror { bottom: 49%; left: 31%; z-index: 8; width: 7%; height: 7%; border: 2px solid #465348; background: #b5c0b6; }
+.pixel-rear { bottom: 28%; right: 4%; z-index: 5; width: 11%; height: 26%; border: 3px solid #515d51; background: #b9c1b5; clip-path: polygon(0 0, 76% 10%, 100% 32%, 100% 100%, 0 100%); }
+.pixel-taillight { bottom: 40%; right: 3%; z-index: 8; width: 5%; height: 11%; background: #c65d51; }
+.pixel-rocker { right: 17%; bottom: 17%; z-index: 7; width: 49%; height: 5%; background: #38463e; box-shadow: 0 3px 0 #27332e; }
+.pixel-door-line { top: 20%; bottom: 7%; z-index: 6; width: 2px; background: #778579; }
+.pixel-door-one { left: 50%; } .pixel-door-two { left: 72%; }
+.pixel-handle { top: 28%; z-index: 7; width: 6%; height: 4%; background: #d5dbd1; box-shadow: 0 0 0 1px #758376; }
+.pixel-handle-one { left: 44%; } .pixel-handle-two { left: 65%; }
+.pixel-wheel { bottom: 5%; z-index: 10; width: 17%; aspect-ratio: 1; border: 5px solid #242e29; background: repeating-conic-gradient(#4f564f 0 14deg, #1b2420 14deg 29deg, #746142 29deg 36deg); clip-path: polygon(29% 0, 71% 0, 71% 6%, 86% 6%, 86% 15%, 94% 15%, 94% 30%, 100% 30%, 100% 70%, 94% 70%, 94% 85%, 86% 85%, 86% 94%, 71% 94%, 71% 100%, 29% 100%, 29% 94%, 14% 94%, 14% 85%, 6% 85%, 6% 70%, 0 70%, 0 30%, 6% 30%, 6% 15%, 14% 15%, 14% 6%, 29% 6%); box-shadow: inset 0 0 0 6px #151e1b, 0 3px 0 #5b6e63; }
+.pixel-wheel-front { left: 13%; } .pixel-wheel-rear { right: 13%; }
+.pixel-wheel b { inset: 31%; border: 3px solid #61482f; background: #ad7d43; box-shadow: inset 0 0 0 2px #d1a262; }
+.pixel-tent { bottom: 73%; left: 32%; z-index: 12; width: 55%; height: 13%; border: 3px solid #18211f; background: linear-gradient(180deg, #3c4843 0%, #1e2825 18%, #151d1b 74%, #49564f 75%, #212d28 100%); box-shadow: inset 0 3px 0 #657169, 0 3px 0 #15201d; }
+.pixel-tent::before { position: absolute; top: 27%; right: 8%; left: 8%; height: 3px; background: #7f8b83; box-shadow: 0 5px 0 #15201d; content: ""; }
+.pixel-tent::after { position: absolute; right: 12%; bottom: 17%; width: 8%; height: 24%; border: 1px solid #9ba49f; background: #303d36; content: ""; }
+.fourrunner-drive.is-driving .pixel-wheel { animation: fourrunner-wheel-spin .48s linear infinite; }
