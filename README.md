@@ -1,4 +1,4 @@
-# Jared Giampietro | Junior IT Analyst
+# Jared Giampietro | JR IS Analyst
 
 Personal portfolio site, served from this repo via GitHub Pages at
 [jjgiampietro.github.io](https://jjgiampietro.github.io/).
