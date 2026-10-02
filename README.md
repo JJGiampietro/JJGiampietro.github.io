@@ -1,45 +1,28 @@
 # Jared Giampietro | JR IS Analyst
 
-Personal portfolio site, served from this repo via GitHub Pages at
-[jjgiampietro.github.io](https://jjgiampietro.github.io/).
+Personal portfolio focused on Power Platform and SharePoint Administration.
+Published at [jjgiampietro.github.io](https://jjgiampietro.github.io/).
 
-## Stack
+## Project structure
 
-Plain HTML, CSS, and vanilla JS — no framework, no build step, no
-`node_modules`. Open `index.html` in a browser and it works; there's nothing
-to compile.
+- `index.html` and `assets/`: the approved production build served by GitHub Pages.
+- `site-source/`: editable React source, Microsoft Fluent UI components, Motion interactions, and design guide.
+- Older root-level CSS, scripts, and images are retained for reference. The current site does not load them.
 
-```
-index.html      All page content and markup
-styles.css      All styling, organized to match the page's sections
-script.js       Mobile menu toggle + auto-updating footer year (~40 lines)
-favicon.svg     Tab icon
-jared-profile.jpg, og.jpg   Photos, pre-sized and compressed for the web
-robots.txt, sitemap.xml     Basic SEO plumbing
-```
+## Edit and preview
 
-## Editing content
-
-Everything visible on the page lives directly in `index.html` as plain
-text — headings, paragraphs, card copy, and links. Open it in any editor,
-change the text, save, and refresh.
-
-## Local preview
-
-Any static file server works, for example:
-
-```
-npx serve .
+```sh
+cd site-source
+npm ci
+npm run dev
 ```
 
-or Python's built-in server:
+The local preview is available at http://127.0.0.1:5175/.
 
-```
-python3 -m http.server
-```
+## Publish updates
 
-## Deploying
+Run `npm run build` from `site-source`, then copy the contents of `site-source/dist/` into the repository root. Commit the reviewed build and source changes to `main`. GitHub Pages publishes the root of that branch.
 
-This repo *is* the deployed site — GitHub Pages serves whatever is on the
-`main` branch. Commit and push, and the live site updates within a minute
-or two.
+The site preserves Jared's portrait, LinkedIn-only contact, and the Beyond the Desk pixel 4Runner feature. The approval flow is an illustrative browser-only example and submits no data.
+
+Microsoft product marks come from official Microsoft product/CDN assets. See `site-source/DESIGN.md` for design decisions.

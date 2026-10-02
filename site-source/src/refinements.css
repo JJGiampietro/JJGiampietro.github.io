@@ -1,0 +1,66 @@
+/* Product orbit. The moving frame and counter-rotating content stay synchronized. */
+.platform-visual{overflow:clip}
+.platform-ring{position:absolute;width:65%;aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-50%)}
+.platform-ring .platform-orbit{inset:0;width:100%;height:100%;border-radius:50%;transform:none}
+.platform-rotor,.platform-slot{position:absolute;inset:0}
+.platform-slot{transform:rotate(var(--position));pointer-events:none}
+.platform-anchor{position:absolute;left:50%;top:0;width:136px;transform:translate(-50%,-50%)}
+.platform-upright{transform:rotate(calc(-1 * var(--position)))}
+.platform-upright .platform-product{position:static;inset:auto;width:100%;pointer-events:auto;border-radius:24px}
+.platform-center{left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none}
+.orbit-toggle{position:absolute!important;bottom:2px;right:5px;min-width:30px!important;width:30px;height:30px;padding:5px!important;color:var(--muted)!important;border-radius:50%!important}
+@media(prefers-reduced-motion:no-preference){
+  .platform-rotor{animation:ecosystem-orbit 40s linear infinite}
+  .platform-upright{animation:ecosystem-upright 40s linear infinite}
+  .platform-visual[data-paused=true] .platform-rotor,
+  .platform-visual[data-paused=true] .platform-upright,
+  .platform-visual:hover .platform-rotor,
+  .platform-visual:hover .platform-upright,
+  .platform-visual:focus-within .platform-rotor,
+  .platform-visual:focus-within .platform-upright{animation-play-state:paused}
+  @keyframes ecosystem-orbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+  @keyframes ecosystem-upright{from{transform:rotate(calc(-1 * var(--position)))}to{transform:rotate(calc(-1 * var(--position) - 360deg))}}
+}
+
+/* Stronger surfaces and restrained pointer feedback. */
+:root{--card-edge:#e0dae9;--card-hover:#aa8ad9;--card-shadow:0 5px 20px rgba(54,34,87,.045);--card-hover-shadow:0 18px 42px rgba(65,42,103,.13)}
+:root[data-theme=dark]{--card-edge:#3c354b;--card-hover:#8365ac;--card-shadow:0 7px 24px rgba(5,3,12,.22);--card-hover-shadow:0 22px 46px rgba(5,3,12,.4)}
+.focus-grid{perspective:1200px}
+.focus-grid>.focus-cell{padding:0;background:transparent;min-height:0;overflow:visible;border-radius:24px}
+.focus-cell .focus-tile{height:100%;border:1px solid var(--card-edge);box-shadow:var(--card-shadow),inset 0 1px 0 rgba(255,255,255,.08);transition:border-color .32s,box-shadow .32s;transform-origin:center}
+.focus-cell .automate-tile{background:linear-gradient(135deg,var(--accent-soft),var(--tile))}
+.focus-cell .apps-tile,.focus-cell .sharepoint-tile{background:linear-gradient(145deg,var(--surface) 45%,var(--tile))}
+.focus-cell .insights-tile{background:linear-gradient(135deg,var(--tile),var(--accent-soft))}
+.focus-tile:focus-within{border-color:var(--card-hover);box-shadow:var(--card-hover-shadow)}
+.focus-tile .app-graphic,.focus-tile .insight-graphic{transition:transform .55s cubic-bezier(.22,1,.36,1)}
+.focus-tile .product-mark{transition:transform .4s cubic-bezier(.22,1,.36,1)}
+@media(hover:hover) and (pointer:fine){
+  .focus-tile:hover{border-color:var(--card-hover);box-shadow:var(--card-hover-shadow)}
+  .focus-tile:hover .product-mark{transform:translateY(-2px) scale(1.08)}
+  .apps-tile:hover .app-graphic{transform:translate(-5px,-5px) rotate(-3deg) scale(1.06)}
+  .insights-tile:hover .insight-graphic{transform:translate(-5px,-5px) rotate(2deg) scale(1.06)}
+  .sharepoint-tile:hover .sharepoint-topics span{border-color:var(--card-hover);background:var(--accent-soft)}
+}
+.sharepoint-topics span{border:1px solid transparent;transition:border-color .3s,background .3s}
+
+/* All supporting skills are visible without a tab interaction. */
+.supporting-skills{margin-top:34px;padding-top:18px}
+.support-top{padding-bottom:18px}
+.support-top h3{font-size:16px}
+.support-details{grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;padding-top:23px}
+.support-details>div{display:block}
+.support-details>div>svg{margin-bottom:12px}
+.support-details h4{font-size:12px;line-height:1.5;margin-bottom:6px}
+.support-details p{font-size:11px;line-height:1.65}
+@media(max-width:1100px){.platform-anchor{width:122px}.support-details{gap:22px}}
+@media(max-width:767px){
+  .platform-ring{width:64%}
+  .platform-anchor{width:114px}
+  .platform-center{left:50%;top:50%}
+  .orbit-toggle{right:0;bottom:-4px}
+  .focus-grid>.focus-cell{grid-column:span 1;border-radius:20px}
+  .support-details{grid-template-columns:repeat(2,minmax(0,1fr));gap:27px 22px}
+  .support-details>div>svg{width:23px;height:23px;margin-bottom:10px}
+}
+@media(max-width:370px){.platform-ring{width:61%}.platform-anchor{width:108px}.platform-center>strong{font-size:15px}.platform-center>span{font-size:10px}.support-details{gap:23px 16px}}
+@media(prefers-reduced-motion:reduce){.platform-rotor{animation:none}.platform-upright{animation:none}.focus-tile .app-graphic,.focus-tile .insight-graphic,.focus-tile .product-mark{transition:none}}
